@@ -1,0 +1,4 @@
+# Sensitive info
+.env
+srcs/.env
+secrets/
