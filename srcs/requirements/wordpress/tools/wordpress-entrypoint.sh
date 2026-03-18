@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Waiting until MariaDB is ready
+echo "Wait MariaDB..."
+while !mysqladmin ping -h"mariadb" --silent; do
+    sleep 1
+done
+# Download WordPress if wp-config.php not found
+if [ ! -f /var/www/html/wp-config.php ]; then
+    echo "Download WordPress..."
+    wp core download --allow-root
+    # Set up wp-config.php
+    echo "Configure WordPress..."
+    wp config create \
+        --dbname=${MYSQL_DATABASE} \
+        --dbuser=${MYSQL_USER} \
+        --dbpass=${MYSQL_PASSWORD} \
+        --dbhost=mariadb:3306 \
+        --allow-root
+	# Set up WordPress
+    echo "Set up WordPress..."
+    wp core install \
+        --url=${WP_URL} \
+        --title="${WP_TITLE}" \
+        --admin_user=${WP_ADMIN_USER} \
+        --admin_password=${WP_ADMIN_PASSWORD} \
+        --admin_email=${WP_ADMIN_EMAIL} \
+        --allow-root
+	# Create regular user
+	echo "Create regular user..."
+    wp user create ${WP_USER} ${WP_USER_EMAIL} \
+        --user_pass=${WP_USER_PASSWORD} \
+        --role=author \
+        --allow-root
+	# Change permission from root to www-data
+    chown -R www-data:www-data /var/www/html
+fi
+
+echo "Start PHP-FPM..."
+# php-fpm running at frontend
+exec php-fpm7.4 -F
