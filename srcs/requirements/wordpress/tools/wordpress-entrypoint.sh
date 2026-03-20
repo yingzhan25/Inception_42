@@ -2,7 +2,7 @@
 
 # Waiting until MariaDB is ready
 echo "Wait MariaDB..."
-while !mysqladmin ping -h"mariadb" --silent; do
+while ! MYSQL_PWD="$MYSQL_PASSWORD" mysqladmin ping -h"mariadb" -u"$MYSQL_USER" --silent; do
     sleep 1
 done
 # Download WordPress if wp-config.php not found
@@ -38,4 +38,4 @@ fi
 
 echo "Start PHP-FPM..."
 # php-fpm running at frontend
-exec php-fpm7.4 -F
+exec php-fpm8.2 -F
