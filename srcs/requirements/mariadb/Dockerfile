@@ -1,5 +1,5 @@
 # Use penultimate stable Debian as base image
-From debian:bookworm
+FROM debian:bookworm
 # Install MariaDB and remove cache lists
 RUN apt-get update && apt-get install -y \
 	mariadb-server \
@@ -19,7 +19,7 @@ COPY conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 COPY tools/init-db.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/init-db.sh
 # Declare to expose port 3306
-Expose 3306
+EXPOSE 3306
 # Run this script automatically when container starts
 # mysqld replaces shell becoming PID1
 # Continue in frontend until stop or crash

@@ -39,6 +39,15 @@ services:
       - wordpress
     restart: always
 
+  redis:
+    build:
+      context: requirements/bonus/redis
+      dockerfile: Dockerfile
+    container_name: redis
+    restart: always
+    networks:
+      - inception_network
+
 volumes:
   mariadb_data:
     driver: local

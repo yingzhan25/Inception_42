@@ -1,5 +1,5 @@
 # Use penultimate stable Debian as base image
-From debian:bookworm
+FROM debian:bookworm
 # Install php-fpm and other php extensions
 RUN apt-get update && apt-get install -y \
     php8.2-fpm \
@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y \
     wget \
     curl \
 	mariadb-client \
+	redis-tools \
     && rm -rf /var/lib/apt/lists/*
 # Install WP-CLI && add permission && move to sys directory
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \

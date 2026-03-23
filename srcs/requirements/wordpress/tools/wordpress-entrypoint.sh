@@ -32,8 +32,21 @@ if [ ! -f /var/www/html/wp-config.php ]; then
         --user_pass=${WP_USER_PASSWORD} \
         --role=author \
         --allow-root
+
+	echo "Waiting for Redis..."
+	while ! redis-cli -h redis -p 6379 ping | grep -q PONG; do
+		sleep 2
+	done
+
+	echo "Configuring Redis cache..."
+	wp config set WP_REDIS_HOST redis --allow-root
+	wp config set WP_REDIS_PORT 6379 --raw --allow-root
+	wp plugin install redis-cache --activate --allow-root
+	wp redis enable --allow-root
+
 	# Change permission from root to www-data
     chown -R www-data:www-data /var/www/html
+	echo "WordPress + Redis setup complete!"
 fi
 
 echo "Start PHP-FPM..."

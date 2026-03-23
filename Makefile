@@ -26,6 +26,7 @@ clean: down
 
 fclean: clean
 	sudo rm -rf /home/yingzhan/data/mariadb/*
+	sudo rm -f /home/yingzhan/data/mariadb/.inception_initialized
 	sudo rm -rf /home/yingzhan/data/wordpress/*
 
 re: fclean all
