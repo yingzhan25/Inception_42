@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inception - 42 Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <span class="logo">🐳</span>
+            <h1>Inception</h1>
+            <p>A Docker Infrastructure Project @ 42 School</p>
+        </header>
+
+        <!-- About -->
+        <section class="about">
+            <h2>About</h2>
+            <p>
+                This project sets up a complete web infrastructure using Docker containers.
+                Each service runs in its own container, built from scratch using custom Dockerfiles.
+            </p>
+        </section>
+
+        <!-- Architecture -->
+        <section class="architecture">
+            <h2>Architecture</h2>
+            <pre>
+┌─────────────────────────────────────────┐
+│            Docker Network               │
+│                                         │
+│  NGINX ──→ WordPress ──→ MariaDB        │
+│  :443      php-fpm       :3306          │
+│               │                         │
+│               ▼                         │
+│            Redis                        │
+│                                         │
+│  Lighttpd (this page)    FTP Server     │
+└─────────────────────────────────────────┘
+            </pre>
+        </section>
+
+        <!-- Tech Stack -->
+        <section class="tech">
+            <h2>Tech Stack</h2>
+            <div class="badges">
+                <span>Docker</span>
+                <span>NGINX</span>
+                <span>WordPress</span>
+                <span>MariaDB</span>
+                <span>Redis</span>
+                <span>Lighttpd</span>
+            </div>
+        </section>
+
+        <!-- Author -->
+        <section class="author">
+            <h2>Author</h2>
+            <p>👨‍💻 <strong> Ying Zhang</strong> (@yingzhan)</p>
+            <a href="https://github.com/yingzhan25" target="_blank">GitHub</a>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>Served by Lighttpd 🚀</p>
+        </footer>
+    </div>
+</body>
+</html>

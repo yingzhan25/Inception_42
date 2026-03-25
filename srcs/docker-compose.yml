@@ -76,6 +76,18 @@ services:
     networks:
       - inception_network
 
+  lighttpd:
+    build:
+      context: requirements/bonus/lighttpd
+      dockerfile: Dockerfile
+    container_name: lighttpd
+    restart: always
+    # host 8081:container 80
+    ports:
+      - "8081:80"
+    networks:
+      - inception_network
+
 volumes:
   mariadb_data:
     driver: local

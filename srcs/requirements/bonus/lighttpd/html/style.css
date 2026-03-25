@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: #e0e0e0;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 50px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo {
+    font-size: 4rem;
+}
+
+h1 {
+    font-size: 3rem;
+    background: linear-gradient(90deg, #00d9ff, #00ff88);
+    -webkit-background-clip: text;
+	background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 10px 0;
+}
+
+.header p {
+    color: #888;
+}
+
+/* Sections */
+section {
+    margin: 40px 0;
+}
+
+h2 {
+    color: #00d9ff;
+    margin-bottom: 15px;
+    border-left: 3px solid #00ff88;
+    padding-left: 10px;
+}
+
+/* Architecture */
+.architecture pre {
+    background: rgba(0,0,0,0.3);
+    padding: 20px;
+    border-radius: 10px;
+    color: #00ff88;
+    overflow-x: auto;
+    font-size: 0.85rem;
+}
+
+/* Tech Badges */
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.badges span {
+    background: rgba(0,217,255,0.1);
+    border: 1px solid #00d9ff;
+    color: #00d9ff;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/* Author */
+.author a {
+    color: #00ff88;
+    text-decoration: none;
+    border: 1px solid #00ff88;
+    padding: 5px 12px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.author a:hover {
+    background: #00ff88;
+    color: #1a1a2e;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    color: #666;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 40px;
+}
