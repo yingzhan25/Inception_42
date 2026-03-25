@@ -48,6 +48,21 @@ services:
     networks:
       - inception_network
 
+  ftp:
+    build:
+      context: requirements/bonus/ftp
+      dockerfile: Dockerfile
+    env_file: .env
+    container_name: ftp
+    restart: always
+    ports:
+      - "21:21"
+      - "21100-21110:21100-21110"
+    volumes:
+      - wordpress_data:/var/www/html
+    networks:
+      - inception_network
+
 volumes:
   mariadb_data:
     driver: local
