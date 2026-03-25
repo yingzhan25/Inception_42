@@ -63,6 +63,19 @@ services:
     networks:
       - inception_network
 
+  adminer:
+    build:
+      context: requirements/bonus/adminer
+      dockerfile: Dockerfile
+    container_name: adminer
+    depends_on:
+      - mariadb
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - inception_network
+
 volumes:
   mariadb_data:
     driver: local
