@@ -2,3 +2,5 @@
 .env
 srcs/.env
 secrets/
+# OS file
+.DS_Store
