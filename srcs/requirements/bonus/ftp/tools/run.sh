@@ -1,4 +1,6 @@
 #!/bin/bash
+FTP_PWD=$(cat /run/secrets/my_password)
+
 # add bash to /etc/shells
 echo "/bin/bash" >> /etc/shells
 # add new user in wordpress volume dir

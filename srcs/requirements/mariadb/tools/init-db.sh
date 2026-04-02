@@ -1,5 +1,8 @@
 #!/bin/bash
 
+MYSQL_ROOT_PASSWORD=$(cat /run/secrets/my_password)
+MYSQL_PASSWORD=$(cat /run/secrets/my_password)
+
 set -e
 
 DATADIR=/var/lib/mysql
