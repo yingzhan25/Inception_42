@@ -32,7 +32,6 @@ This document outlines the setup, build process, and technical details for devel
     # MariaDB Settings
     DB_NAME=your_database_name
     DB_USER=your_database_user
-    DB_ROOT_PASSWORD=your_root_password
 
     # WordPress Settings (can be anything, WordPress uses them for setup)
     WP_USER=your_wordpress_admin_user
