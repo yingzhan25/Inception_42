@@ -46,13 +46,13 @@ Once the project is running, you can access the different services via your web 
 
 ## Managing Credentials
 
-All credentials and sensitive configuration details for the project are stored in a single file:
+All credentials and sensitive configuration details for the project are stored in two files:
 
--   **Location**: `srcs/.env`
+-   **Location**: `srcs/.env` `srcs/secrets/my_password.txt`
 
-This file contains the passwords for the MariaDB root user, the database user, and the FTP user, as well as the database name. You can edit this file to change the credentials, but you will need to restart the project for the changes to take effect (using `make re` is recommended).
+This files contain the passwords for the MariaDB root user, the database user, and the FTP user, as well as the database name. You can edit the files to change the credentials, but you will need to restart the project for the changes to take effect (using `make re` is recommended).
 
-**Warning**: Treat the `.env` file as sensitive. Do not share it or commit it to a public repository.
+**Warning**: Treat the `.env` file and `secret/` folder as sensitive. Do not share or commit to a public repository.
 
 ## Checking Service Status
 

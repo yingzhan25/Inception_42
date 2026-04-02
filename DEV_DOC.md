@@ -25,23 +25,21 @@ This document outlines the setup, build process, and technical details for devel
     -   `srcs/docker-compose.yml`: Update the `device` path for the `mariadb_data` and `wordpress_data` volumes.
 
 3.  **Secrets (Environment Variables)**:
-    Create a file named `.env` inside the `srcs/` directory. This file will hold all the secrets and configuration variables for the services. Populate it with the following keys:
+    Create a subdirectory named `secrets` inside the `srcs/` directory. This folder will hold the password txt file for the services.
+	Create a file named `.env` inside the `srcs/` directory. This file will hold configuration variables for the services. Populate it with the following keys:
 
     ```env
     # MariaDB Settings
     DB_NAME=your_database_name
     DB_USER=your_database_user
-    DB_PASSWORD=your_database_password
     DB_ROOT_PASSWORD=your_root_password
 
     # WordPress Settings (can be anything, WordPress uses them for setup)
     WP_USER=your_wordpress_admin_user
-    WP_PASSWORD=your_wordpress_admin_password
     WP_EMAIL=your_email@example.com
 
     # FTP Server Settings
     FTP_USER=your_ftp_user
-    FTP_PASSWORD=your_ftp_password
     ```
 
 ## Building and Launching the Project

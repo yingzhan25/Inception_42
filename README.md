@@ -23,8 +23,8 @@ The core setup includes a LEMP stack (Linux, Nginx, MariaDB, PHP) running a Word
 
 #### Secrets vs. Environment Variables
 
--   **Environment Variables (`.env` file)** are used in this project to manage configuration details like database passwords and user names. They are easy to use and are injected into the container's environment at runtime. However, they can be a security risk as they can be inspected by anyone with access to the container or the host's Docker daemon.
--   **Docker Secrets** are a more secure way to manage sensitive data. Secrets are encrypted and only mounted into the container's memory (as files in `/run/secrets/`) when a service is granted access. They are not stored in the container's environment or on disk unencrypted. While more secure, they are primarily designed for Docker Swarm mode. For the scope of this project, environment variables were chosen for their simplicity with `docker-compose`.
+-   **Environment Variables (`.env` file)** are used in this project to manage configuration details like user names. They are easy to use and are injected into the container's environment at runtime. However, they can be a security risk as they can be inspected by anyone with access to the container or the host's Docker daemon.
+-   **Docker Secrets** are a more secure way to manage sensitive data. They are used to store password in this project. Secrets are encrypted and only mounted into the container's memory (as files in `/run/secrets/`) when a service is granted access. They are not stored in the container's environment or on disk unencrypted. While more secure, they are primarily designed for Docker Swarm mode. For the scope of this project, environment variables were chosen for their simplicity with `docker-compose`.
 
 #### Docker Network vs. Host Network
 
@@ -44,7 +44,8 @@ The core setup includes a LEMP stack (Linux, Nginx, MariaDB, PHP) running a Word
 
 2.  **Setup**:
     *   The `Makefile` requires the data directories to be located at `/home/yingzhan/data/`. If your username is different, you must update the paths in the `Makefile` and `srcs/docker-compose.yml`.
-    *   Create a `.env` file in the `srcs` directory with the necessary environment variables (e.g., `DB_NAME`, `DB_USER`, `DB_PASSWORD`, etc.).
+    *   Create a `.env` file in the `srcs` directory with the necessary environment variables (e.g., `DB_NAME`, `DB_USER`, etc.).
+    *   Create a `my_password.txt` file under the `secrets` subdirectory in the `srcs` directory with the password.
 
 3.  **Execution**:
     Use the provided `Makefile` at the root of the repository:
